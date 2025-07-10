@@ -1,0 +1,71 @@
+🧠 Difficulty:
+🟨 Medium
+
+📄 Problem Statement:
+You are given a string S that contains lowercase alphabetic characters, spaces, and special characters (such as @, #, %, *, etc.).
+
+Your task is to cleanse the string by performing the following two operations in order:
+
+Remove all special characters (i.e., characters that are neither a lowercase alphabet letter nor a space).
+
+For each special character removed, also remove the next nearest alphabetic character that comes after it in the string.
+
+Skip any spaces or other special characters when looking for this next letter.
+
+If there is no alphabet character after a special character, ignore this step for that character.
+
+Return the cleansed version of the string, keeping the original positions but replacing the removed characters with spaces to maintain alignment.
+
+✨ Example:
+Input:
+S = "#abi%s @in&"
+Output:
+" bi     n  "
+Explanation:
+# → removed + removes a
+
+% → removed + removes s
+
+@ → removed + removes i
+
+& → removed + removes n
+Final string: " bi n "
+
+🔒 Constraints:
+1 <= S.length <= 10^4
+
+S contains lowercase letters (a–z), spaces, and printable special characters.
+
+public static String cleanString(String s) {
+    int n = s.length();
+    Set<Integer> skipIndices = new HashSet<>();
+
+    for (int i = 0; i < n; i++) {
+        char ch = s.charAt(i);
+        if (!Character.isLetter(ch) && ch != ' ') {
+            skipIndices.add(i);  // mark special character
+
+            // Find next alphabet character
+            int j = i + 1;
+            while (j < n) {
+                if (Character.isLetter(s.charAt(j))) {
+                    skipIndices.add(j);
+                    break;
+                }
+                j++;
+            }
+        }
+    }
+
+    // Build final string
+    StringBuilder result = new StringBuilder();
+    for (int i = 0; i < n; i++) {
+        if (skipIndices.contains(i)) {
+            result.append(' ');
+        } else {
+            result.append(s.charAt(i));
+        }
+    }
+
+    return result.toString();
+}
