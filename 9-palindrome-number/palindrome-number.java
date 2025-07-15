@@ -2,9 +2,9 @@ class Solution {
     public boolean isPalindrome(int x) {
         int reverse=0;
         int originalno=x;
-        String xstr=Integer.toString(x);
-        char xchr=xstr.charAt(0);
-        if (xchr=='-'){
+        // String xstr=Integer.toString(x);
+        // char xchr=xstr.charAt(0);
+        if (x<0){
             return false;
         }
         while(x>0){
