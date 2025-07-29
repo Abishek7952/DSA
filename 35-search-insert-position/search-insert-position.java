@@ -3,7 +3,7 @@ class Solution {
         int s=0;
         int e=nums.length-1;
        
-
+//binary search logic with change in ==target condition to return mid instead of -1
         while(s<=e){
             int mid=s+(e-s)/2;
             if (nums[mid]==target){
