@@ -35,7 +35,7 @@ Final string: " bi n "
 1 <= S.length <= 10^4
 
 S contains lowercase letters (a–z), spaces, and printable special characters.
-
+----------------------------------------------------------------------------------------------------------------------------------------
 public static String cleanString(String s) {
     int n = s.length();
     Set<Integer> skipIndices = new HashSet<>();
