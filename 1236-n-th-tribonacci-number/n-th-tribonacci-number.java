@@ -5,6 +5,8 @@ class Solution {
         Arrays.fill(arr,-1);
         return tribosum(n,arr);
     }
+
+// recurssive function for execution
     public int tribosum(int n,int[] arr) {
         if(n<2){
             return n;
