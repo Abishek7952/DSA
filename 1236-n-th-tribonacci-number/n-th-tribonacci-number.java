@@ -1,3 +1,5 @@
+
+//fibonacci -add 2 nos tribonacci add 3 
 class Solution {
 
     public int tribonacci(int n){
