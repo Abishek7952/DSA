@@ -10,7 +10,7 @@
  */
 class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode(0);//dummy so that we dont hav to find which list provides the first head/node  
         ListNode current =dummy;
 
         while (list1 != null && list2 != null){
