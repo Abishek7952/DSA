@@ -1,44 +1,29 @@
-import java.util.*;
 class MyStack {
-    Queue<Integer> q1;
-    Queue<Integer> q2;
+    private Queue<Integer> q;
 
     public MyStack() {
-        q1= new LinkedList<>();
-        q2=new LinkedList<>();
+        q = new LinkedList<>();
     }
     
     public void push(int x) {
-        q2.add(x);
-        while(!q1.isEmpty()){
-            q2.offer(q1.poll());
-        }
-        Queue<Integer> temp=q1;
-        q1=q2;
-        q2=temp;
+        int size = q.size(); // Get current number of elements
+        q.add(x);            // Add the new element to the back
         
+        // Rotate the queue: move all previous elements behind x
+        for (int i = 0; i < size; i++) {
+            q.add(q.poll());
+        }
     }
     
     public int pop() {
-        return q1.poll();
+        return q.poll(); // Now the last pushed element is at the front
     }
     
     public int top() {
-        return q1.peek();
-        
+        return q.peek();
     }
     
     public boolean empty() {
-        return q1.isEmpty();
-        
+        return q.isEmpty();
     }
 }
-
-/**
- * Your MyStack object will be instantiated and called as such:
- * MyStack obj = new MyStack();
- * obj.push(x);
- * int param_2 = obj.pop();
- * int param_3 = obj.top();
- * boolean param_4 = obj.empty();
- */
