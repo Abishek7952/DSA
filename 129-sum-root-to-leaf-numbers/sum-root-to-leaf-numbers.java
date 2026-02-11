@@ -22,6 +22,7 @@ class Solution {
 
         sum=sum*10+node.val;
 
+        // break condn:
         if(node.left==null && node.right==null){
             return sum;
         }
